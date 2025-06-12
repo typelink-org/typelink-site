@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Always try to keep the code lean. don't add a lot of boilerplate.
