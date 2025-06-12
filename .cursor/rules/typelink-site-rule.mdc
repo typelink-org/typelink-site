@@ -4,3 +4,5 @@ globs:
 alwaysApply: true
 ---
 Always try to keep the code lean. don't add a lot of boilerplate.
+
+Stick to ShadCN / Tailwind boundaries. Don't add any custom css boiler plate
