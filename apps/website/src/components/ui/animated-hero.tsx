@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -9,6 +10,7 @@ function Hero() {
     () => ["amazing", "new", "wonderful", "beautiful", "smart"],
     []
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -22,15 +24,12 @@ function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-20 lg:py-40">
-      <div className="container mx-auto max-w-2xl flex flex-col items-center gap-8">
-        <Button variant="secondary" size="sm" className="gap-4">
-          Read our launch article <MoveRight className="w-4 h-4" />
-        </Button>
-        <div className="flex gap-4 flex-col items-center">
-          <h1 className="text-5xl md:text-7xl tracking-tighter text-center font-regular">
+    <section className="min-h-screen flex items-center justify-center py-20 lg:py-40 pt-16">
+      <div className="container mx-auto flex flex-col items-center gap-8 max-w-2xl">
+        <div className="flex gap-4 flex-col items-center w-full">
+          <h1 className="text-5xl md:text-7xl tracking-tighter text-center font-regular w-full">
             <span className="text-spektr-cyan-50">This is something</span>
-            <span className="relative flex justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+            <span className="relative flex justify-center overflow-hidden text-center md:pb-4 md:pt-1 w-full">
               &nbsp;
               {titles.map((title, index) => (
                 <motion.span
@@ -55,19 +54,16 @@ function Hero() {
               ))}
             </span>
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground text-center">
-            Managing a small business today is already tough. Avoid further
-            complications by ditching outdated, tedious trade methods. Our
-            goal is to streamline SMB trade, making it easier and faster than
-            ever.
+          <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground text-center w-full">
+            Agentic AI Apps Built for Humans, Not to Replace Them
           </p>
         </div>
-        <div className="flex flex-row gap-3 justify-center">
+        <div className="flex flex-row gap-3 justify-center w-full">
           <Button size="lg" className="gap-4" variant="outline">
             Jump on a call <PhoneCall className="w-4 h-4" />
           </Button>
-          <Button size="lg" className="gap-4">
-            Sign up here <MoveRight className="w-4 h-4" />
+          <Button size="lg" className="gap-4" onClick={() => navigate('/start')}>
+            Get Started <MoveRight className="w-4 h-4" />
           </Button>
         </div>
       </div>
